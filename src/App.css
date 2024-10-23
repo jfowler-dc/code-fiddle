@@ -7,34 +7,63 @@ body, html, #root {
 }
 
 .App {
-
+  overflow:hidden;
 }
 
-h1 {
-  text-align: center;
-}
-
-.editors {
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap:10px;
-  padding:0 10px;
-  box-sizing: border-box;
-}
-
-.editor-container {
-}
-
-.editor {
-  height:400px;
-}
-
-iframe {
-}
-
-
-.result-container {
+.cf-header {
   width:100%;
+  height:65px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
-  padding:0 10px;
+  border-bottom:1px solid #000;
+}
+
+.cf-header h1 {
+  font-size:20px;
+  text-align: center;
+  margin:0;
+}
+
+.cf-editor-container {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 65px);
+}
+
+.cf-editor-container-section {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  height:100%;
+}
+.cf-editor-container-section:first-child {
+  border-right:1px solid #fff;
+}
+
+.cf-editor {
+  display:flex;
+  flex-direction: column;
+  height:50vh;
+  width:100%;
+}
+
+.cf-editor-header {
+  display:flex;
+  padding:0 15px;
+}
+
+.cf-editor-header h2 {
+  font-size:16px;
+}
+
+.cf-editor-monaco {
+  height:100%;
+}
+
+.cf-editor-monaco iframe {
+  border:0px;
+  border-top:1px solid #000;
+  box-sizing: border-box;
 }

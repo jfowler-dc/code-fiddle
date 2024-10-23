@@ -9,22 +9,24 @@ function App() {
   const [srcDoc, setSrcDoc] = useState('');
 
   useEffect(() => {
-    const htmlEditor = monaco.editor.create(htmlEditorRef.current, {
+    const defaultSettings = {
       value: '',
-      language: 'html',
       theme: 'vs-dark',
+      automaticLayout: true
+    }
+    const htmlEditor = monaco.editor.create(htmlEditorRef.current, {
+      ...defaultSettings,
+      ...{language: 'html'}
     });
 
     const cssEditor = monaco.editor.create(cssEditorRef.current, {
-      value: '',
-      language: 'css',
-      theme: 'vs-dark',
+      ...defaultSettings,
+      ...{language: 'css'}
     });
 
     const jsEditor = monaco.editor.create(jsEditorRef.current, {
-      value: '',
-      language: 'javascript',
-      theme: 'vs-dark',
+      ...defaultSettings,
+      ...{language: 'javascript'}
     });
 
     const updatePreview = () => {
@@ -32,9 +34,6 @@ function App() {
       const css = `<style>${cssEditor.getValue()}</style>`;
       const js = `<script>${jsEditor.getValue()}<\/script>`;
       setSrcDoc(`<html><head>${css}</head><body>${html}</body>${js}</html>`);
-      console.log(html.toString())
-      console.log(css.toString())
-      console.log(js.toString())
     };
 
     htmlEditor.onDidChangeModelContent(updatePreview);
@@ -50,32 +49,57 @@ function App() {
 
   return (
     <div className="App">
-      <h1>JSFiddle Clone</h1>
-      <div className="editors">
-        <div className="editor-container">
-          <h2>HTML</h2>
-          <div ref={htmlEditorRef} className="editor"></div>
-        </div>
-        <div className="editor-container">
-          <h2>CSS</h2>
-          <div ref={cssEditorRef} className="editor"></div>
-        </div>
-        <div className="editor-container">
-          <h2>Javascript</h2>
-          <div ref={jsEditorRef} className="editor"></div>
-        </div>
-      </div>
-      <div className='result-container'>
-        <h2>Result</h2>
 
-        <iframe
-          srcDoc={srcDoc}
-          title="output"
-          sandbox="allow-scripts"
-          width="100%"
-          height="300px"
-        ></iframe>
+      <header className='cf-header'>
+        <h1>Code Fiddle</h1>
+      </header>
+
+      <div className="cf-editor-container">
+        <div className="cf-editor-container-section">
+          <div className="cf-editor">
+            <div className="cf-editor-header">
+              <h2>HTML</h2>
+            </div>
+            <div className="cf-editor-monaco" ref={htmlEditorRef}>
+
+            </div>
+          </div>
+          <div className="cf-editor">
+            <div className="cf-editor-header">
+              <h2>CSS</h2>
+            </div>
+            <div className="cf-editor-monaco" ref={cssEditorRef}>
+
+            </div>
+          </div>
+        </div>
+
+        <div className="cf-editor-container-section">
+          <div className="cf-editor">
+            <div className="cf-editor-header">
+              <h2>Javascript</h2>
+            </div>
+            <div className="cf-editor-monaco" ref={jsEditorRef}>
+
+            </div>
+          </div>
+          <div className="cf-editor">
+            <div className="cf-editor-header">
+              <h2>Result</h2>
+            </div>
+            <div className="cf-editor-monaco">
+              <iframe
+                srcDoc={srcDoc}
+                title="output"
+                sandbox="allow-scripts"
+                width="100%"
+                height="100%">
+              </iframe>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }
