@@ -52,6 +52,8 @@ body, html, #root {
 .cf-editor-header {
   display:flex;
   padding:0 15px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cf-editor-header h2 {

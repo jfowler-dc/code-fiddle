@@ -8,6 +8,20 @@ function App() {
   const jsEditorRef = useRef(null);
   const [srcDoc, setSrcDoc] = useState('');
 
+  async function enablePIP() {
+    const player = document.querySelector("#cf-result");
+    const pipWindow = await documentPictureInPicture.requestWindow();
+    pipWindow.document.body.append(player);
+
+    pipWindow.addEventListener("pagehide", (event) => {
+      const playerContainer = document.querySelector("#cf-result-container");
+      const pipPlayer = event.target.querySelector("#cf-result");
+      playerContainer.append(pipPlayer);
+    });
+  }
+
+  
+
   useEffect(() => {
     const defaultSettings = {
       value: '',
@@ -86,14 +100,19 @@ function App() {
           <div className="cf-editor">
             <div className="cf-editor-header">
               <h2>Result</h2>
+              <div className="cf-options">
+                <button onClick={enablePIP}>PIP</button>
+              </div>
             </div>
-            <div className="cf-editor-monaco">
+            <div className="cf-editor-monaco" id="cf-result-container">
               <iframe
                 srcDoc={srcDoc}
+                id="cf-result"
                 title="output"
                 sandbox="allow-scripts"
                 width="100%"
-                height="100%">
+                height="100%"
+                style={{border:0}}>
               </iframe>
             </div>
           </div>
