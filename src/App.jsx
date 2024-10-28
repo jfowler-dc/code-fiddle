@@ -20,6 +20,16 @@ function App() {
     });
   }
 
+  function ShowPIP() {
+    if ('documentPictureInPicture' in window) {
+      return <button onClick={enablePIP}>
+        <span class="material-symbols-outlined">
+        picture_in_picture_alt
+        </span>
+      </button>
+    }
+  }
+
   
 
   useEffect(() => {
@@ -65,7 +75,9 @@ function App() {
     <div className="App">
 
       <header className='cf-header'>
-        <h1>Code Fiddle</h1>
+        <div className="cf-logo">
+          <h1>Code Fiddle</h1>
+        </div>
       </header>
 
       <div className="cf-editor-container">
@@ -101,7 +113,8 @@ function App() {
             <div className="cf-editor-header">
               <h2>Result</h2>
               <div className="cf-options">
-                <button onClick={enablePIP}>PIP</button>
+
+                <ShowPIP />
               </div>
             </div>
             <div className="cf-editor-monaco" id="cf-result-container">
