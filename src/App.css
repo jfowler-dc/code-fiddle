@@ -33,6 +33,7 @@ body, html, #root {
   display:flex;
   align-items: center;
   justify-content: center;
+  color:#fff;
 }
 
 .cf-header h1 {
@@ -41,6 +42,7 @@ body, html, #root {
   margin:0;
   color:#fff;
   font-weight:400;
+  margin-left:12px;
 }
 
 .cf-editor-container {
