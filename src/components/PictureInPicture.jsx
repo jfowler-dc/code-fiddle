@@ -1,13 +1,15 @@
-function PictureInPicture() {
+function PictureInPicture({iframeId, resultContainerId, pipStateManager}) {
     async function enablePIP() {
-        const player = document.querySelector("#cf-result");
+        const iframe = document.getElementById(iframeId);
         const pipWindow = await documentPictureInPicture.requestWindow();
-        pipWindow.document.body.append(player);
+        pipWindow.document.body.append(iframe);
+        pipStateManager(true)
     
         pipWindow.addEventListener("pagehide", (event) => {
-          const playerContainer = document.querySelector("#cf-result-container");
-          const pipPlayer = event.target.querySelector("#cf-result");
-          playerContainer.append(pipPlayer);
+            pipStateManager(false)
+            const resultContainer = document.getElementById(resultContainerId);
+            const iframe = event.target.getElementById(iframeId);
+            resultContainer.append(iframe);
         });
       }
     

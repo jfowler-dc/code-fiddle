@@ -75,7 +75,10 @@ function App() {
           <span className="material-symbols-outlined">
           terminal
           </span>
-          <h1>Code Fiddle</h1>
+          <h1>codeFiddle</h1>
+        </div>
+        <div className="cf-user-icon">
+
         </div>
       </header>
 

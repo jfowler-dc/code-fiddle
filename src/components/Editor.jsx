@@ -6,7 +6,7 @@ function Editor({title, editorRef, data}) {
             <div className="cf-editor-header">
                 <h2>{title}</h2>
                 <div className="cf-options">
-                    <Copy editorData={data}></Copy>
+                    <Copy editorData={data} />
                 </div>
             </div>
             <div className="cf-editor-monaco" ref={editorRef}>
