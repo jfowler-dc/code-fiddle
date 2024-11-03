@@ -1,4 +1,4 @@
-function Copy({editorData}) {
+function Copy({editorData, editorTitle}) {
 
     function copyToClipboard() {
         editorData.toString()
@@ -9,7 +9,7 @@ function Copy({editorData}) {
     }
 
     return (
-        <button onClick={copyToClipboard}>
+        <button onClick={copyToClipboard} aria-label={"Copy " + editorTitle}>
             <span className="material-symbols-outlined">
             content_copy
             </span>

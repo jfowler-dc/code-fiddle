@@ -88,7 +88,7 @@ function App() {
           <Editor title="CSS" editorRef={cssEditorRef} data={css} />
         </div>
         <div className="cf-editor-container-section">
-          <Editor title="Javascript" editorRef={jsEditorRef} data={js} />
+          <Editor title="ECMAScript" editorRef={jsEditorRef} data={js} />
           <Result title="Result" srcDoc={srcDoc} />
         </div>
       </div>

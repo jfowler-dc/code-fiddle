@@ -37,6 +37,10 @@ body, html, #root {
   color:#3f46dd;
 }
 
+.cf-logo .material-symbols-outlined {
+  font-size:30px;
+}
+
 .cf-header h1 {
   font-size:20px;
   text-align: left;
