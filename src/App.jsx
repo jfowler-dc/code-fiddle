@@ -1,6 +1,7 @@
 import * as monaco from 'monaco-editor';
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
+import AppHeader from './components/AppHeader';
 import Editor from './components/Editor';
 import Result from './components/Result';
 
@@ -70,17 +71,7 @@ function App() {
   return (
     <div className="App">
 
-      <header className='cf-header'>
-        <div className="cf-logo">
-          <span className="material-symbols-outlined">
-          terminal
-          </span>
-          <h1>codeFiddle</h1>
-        </div>
-        <div className="cf-user-icon">
-
-        </div>
-      </header>
+      <AppHeader />
 
       <div className="cf-editor-container">
         <div className="cf-editor-container-section">
