@@ -47,8 +47,8 @@ body, html, #root {
 }
 
 .cf-user-icon {
-  width: 50px;
-  height:50px;
+  width: 40px;
+  height:40px;
   border-radius:50%;
   overflow:hidden;
   background:#3f46dd;
@@ -97,12 +97,11 @@ body, html, #root {
 
 .cf-editor-header {
   display:flex;
-  padding:0 16px;
   justify-content: space-between;
   align-items: center;
   background:#3f46dd;
   box-sizing: border-box;
-  padding:12px;
+  padding:4px 12px;
 }
 
 .cf-editor-header h2 {
@@ -110,6 +109,14 @@ body, html, #root {
   color:#fff;
   font-weight:400;
   margin:0;
+}
+
+.cf-options button {
+  padding:0;
+}
+
+.cf-options .material-symbols-outlined {
+  font-size:20px;
 }
 
 .cf-editor-monaco {

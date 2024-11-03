@@ -4,7 +4,6 @@ import PIP from './PictureInPicture';
 function Result({title, srcDoc}) {
     const [pipState, setPipState] = useState(false)
 
-
     function updatePipState(newPipState) {
         setPipState(newPipState)
     }
