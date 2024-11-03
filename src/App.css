@@ -96,6 +96,10 @@ body, html, #root {
   border: 3px solid #3f46dd;
 }
 
+.cf-result .cf-editor-header h2 {
+  background:#3f46dd;
+}
+
 .cf-editor:first-child:is(:last-child) {
   height:100vh;
 }
@@ -110,7 +114,7 @@ body, html, #root {
 
 .cf-editor-header h2 {
   font-size:16px;
-  background:#3f46dd;
+  background:#1e1e1e;
   color:#fff;
   font-weight:400;
   margin:0;
