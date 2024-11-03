@@ -115,8 +115,17 @@ body, html, #root {
   margin:0;
 }
 
+.cf-options {
+  display:flex;
+}
+
 .cf-options button {
   padding:0;
+  margin-left:12px;
+}
+
+.cf-options button:first-child {
+  margin-left:0;
 }
 
 .cf-options .material-symbols-outlined {
