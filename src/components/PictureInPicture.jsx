@@ -16,10 +16,10 @@ function PictureInPicture({iframeId, resultContainerId, pipStateManager}) {
     function ShowPIP() {
         if ('documentPictureInPicture' in window) {
             return <button onClick={enablePIP} aria-label={"Open Results in Picture in Picture Window"}>
-                <span className="material-symbols-outlined">
-                picture_in_picture_alt
-                </span>
-            </button>
+                    <span className="material-symbols-outlined">
+                    picture_in_picture_alt
+                    </span>
+                </button>
         }
     }
 

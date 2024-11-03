@@ -1,3 +1,7 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 function DownloadResult({srcDoc}) {
 
     function convertTextToHTML() {
@@ -6,14 +10,18 @@ function DownloadResult({srcDoc}) {
         link.href = URL.createObjectURL(blob);
         link.download = 'codeFiddle.html';
         link.click();
+        toast('Files have been downloaded.')
     }
 
     return (
-        <button onClick={convertTextToHTML} aria-label="Download Result">
-            <span className="material-symbols-outlined">
-            download
-            </span>
-        </button>
+        <>
+            <button onClick={convertTextToHTML} aria-label="Download Result">
+                <span className="material-symbols-outlined">
+                download
+                </span>
+            </button>
+            <ToastContainer />
+        </>
     )
 }
 
