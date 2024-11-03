@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import PIP from './PictureInPicture';
-import DR from './DownloadResult';
+import PictureInPicture from './PictureInPicture';
+import DownloadResult from './DownloadResult';
 
 function Result({title, srcDoc}) {
     const [pipState, setPipState] = useState(false)
@@ -15,8 +15,8 @@ function Result({title, srcDoc}) {
                         <div className="cf-editor-header">
                             <h2>{title}</h2>
                             <div className="cf-options">
-                                <DR srcDoc={srcDoc} />
-                                <PIP iframeId="cf-result" resultContainerId="cf-result-container" pipStateManager={updatePipState} />
+                                <DownloadResult srcDoc={srcDoc} />
+                                <PictureInPicture iframeId="cf-result" resultContainerId="cf-result-container" pipStateManager={updatePipState} />
                             </div>
                         </div>
                         <div className="cf-editor-monaco" id="cf-result-container">
