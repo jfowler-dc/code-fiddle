@@ -9,7 +9,7 @@ function DownloadResult({srcDoc}) {
     }
 
     return (
-        <button onClick={convertTextToHTML}>
+        <button onClick={convertTextToHTML} aria-label="Download Result">
             <span className="material-symbols-outlined">
             download
             </span>
