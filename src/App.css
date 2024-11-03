@@ -88,11 +88,12 @@ body, html, #root {
   border-radius:8px;
   overflow:hidden;
   box-sizing: border-box;
-  border-left:3px solid #3f46dd;
-  border-right:3px solid #3f46dd;
-  border-bottom:3px solid #3f46dd;
   margin-bottom:8px;
   background:#f1f0fe;
+}
+
+.cf-result .cf-editor-monaco {
+  border: 3px solid #3f46dd;
 }
 
 .cf-editor:first-child:is(:last-child) {
@@ -103,16 +104,18 @@ body, html, #root {
   display:flex;
   justify-content: space-between;
   align-items: center;
-  background:#3f46dd;
+  background:#fff;
   box-sizing: border-box;
-  padding:4px 12px;
 }
 
 .cf-editor-header h2 {
   font-size:16px;
+  background:#3f46dd;
   color:#fff;
   font-weight:400;
   margin:0;
+  padding:4px 12px;
+  border-top-right-radius: 8px;
 }
 
 .cf-options {
@@ -134,9 +137,7 @@ body, html, #root {
 
 .cf-editor-monaco {
   height:100%;
-  border-radius:8px;
   overflow:hidden;
-  margin:6px;
 }
 
 .cf-editor-monaco iframe {
@@ -147,7 +148,7 @@ body, html, #root {
 button {
   cursor:pointer;
   background:transparent;
-  color:#fff;
+  color:#3f46dd;
   border:0;
   display:flex;
   align-items: center;
@@ -156,5 +157,5 @@ button {
 }
 
 button:hover {
-  color:#fff;
+  color:#3f46dd;
 }

@@ -11,7 +11,7 @@ function Result({title, srcDoc}) {
 
     function showIfPipIsntActive() {
         if (pipState == false) {
-            return  <div className="cf-editor">
+            return  <div className="cf-editor cf-result">
                         <div className="cf-editor-header">
                             <h2>{title}</h2>
                             <div className="cf-options">
