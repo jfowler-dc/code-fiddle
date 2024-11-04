@@ -10,6 +10,7 @@ function App() {
   const cssEditorRef = useRef(null);
   const jsEditorRef = useRef(null);
 
+  const [hideResults, setHideResults] = useState(false)
   const [srcDoc, setSrcDoc] = useState('');
   const [html, setHtml] = useState('')
   const [css, setCss] = useState('')
@@ -68,6 +69,15 @@ function App() {
     };
   }, []);
 
+  function hideResultsWindow(bool) {
+    setHideResults(bool)
+  }
+
+  let hideResultsClass = ''
+  if (hideResults == true) {
+    hideResultsClass = 'cf-hide-section'
+  }
+
   return (
     <div className="App">
 
@@ -75,12 +85,12 @@ function App() {
 
       <div className="cf-editor-container">
         <div className="cf-editor-container-section">
-          <Editor className="" title="HTML" editorRef={htmlEditorRef} data={html} />
+          <Editor title="HTML" editorRef={htmlEditorRef} data={html} />
           <Editor title="CSS" editorRef={cssEditorRef} data={css} />
         </div>
-        <div className="cf-editor-container-section">
+        <div className={hideResultsClass + ' cf-editor-container-section'}>
           <Editor title="ECMAScript" editorRef={jsEditorRef} data={js} />
-          <Result title="Result" srcDoc={srcDoc} />
+          <Result title="Result" srcDoc={srcDoc} hideResultsWindow={hideResultsWindow} />
         </div>
       </div>
 

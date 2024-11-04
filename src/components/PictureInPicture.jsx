@@ -1,12 +1,14 @@
-function PictureInPicture({iframeId, resultContainerId, pipStateManager}) {
+function PictureInPicture({iframeId, resultContainerId, pipStateManager, hideResultsWindow}) {
     async function enablePIP() {
         const iframe = document.getElementById(iframeId);
         const pipWindow = await documentPictureInPicture.requestWindow();
         pipWindow.document.body.append(iframe);
         pipStateManager(true)
+        hideResultsWindow(true)
     
         pipWindow.addEventListener("pagehide", (event) => {
             pipStateManager(false)
+            hideResultsWindow(false)
             const resultContainer = document.getElementById(resultContainerId);
             const iframe = event.target.getElementById(iframeId);
             resultContainer.append(iframe);

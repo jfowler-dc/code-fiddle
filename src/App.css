@@ -194,3 +194,11 @@ button {
 button:hover {
   color:#3f46dd;
 }
+
+.cf-hide-section .cf-result {
+  display:none;
+}
+
+.cf-hide-section .cf-editor {
+  height:100vh;
+}
