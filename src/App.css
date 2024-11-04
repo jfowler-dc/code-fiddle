@@ -28,7 +28,7 @@ body, html, #root {
   background:#f1f0fe;
   padding:0 8px;
   margin-bottom:12px;
-  border-bottom: 2px solid #3f46dd;
+  border-bottom: 2px solid #a4a7e0;
 }
 
 .cf-logo {
@@ -52,8 +52,8 @@ body, html, #root {
 }
 
 .cf-user-icon {
-  width: 40px;
-  height:40px;
+  width: 35px;
+  height:35px;
   border-radius:50%;
   overflow:hidden;
   background:#3f46dd;
@@ -101,6 +101,10 @@ body, html, #root {
   background:#3f46dd;
 }
 
+.cf-result .cf-editor-header h2:before {
+  background:#3f46dd;
+}
+
 .cf-editor:first-child:is(:last-child) {
   height:100vh;
 }
@@ -121,7 +125,32 @@ body, html, #root {
   margin:0;
   padding:4px 12px;
   border-top-right-radius: 8px;
+  position:relative;
 }
+
+.cf-editor-header h2:before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #1e1e1e;
+  position: absolute;
+  right: -8px;
+  bottom: 0;
+}
+
+.cf-editor-header h2:after {
+  content: '';
+  display: block;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  right: -8px;
+  width: 8px;
+  height: 8px;
+  border-bottom-left-radius: 8px;
+}
+
 
 .cf-options {
   display:flex;
