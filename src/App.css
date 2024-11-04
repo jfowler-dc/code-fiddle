@@ -51,12 +51,18 @@ body, html, #root {
   margin-left:12px;
 }
 
+.cf-header-actions {
+  display:flex;
+  align-items: center;
+}
+
 .cf-user-icon {
   width: 35px;
   height:35px;
   border-radius:50%;
   overflow:hidden;
   background:#3f46dd;
+  margin-left:24px;
 }
 
 .cf-editor-container {
@@ -201,4 +207,8 @@ button:hover {
 
 .cf-hide-section .cf-editor {
   height:100vh;
+}
+
+:picture-in-picture body {
+  margin:0;
 }

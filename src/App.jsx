@@ -22,20 +22,53 @@ function App() {
       theme: 'vs-dark',
       automaticLayout: true
     }
+    const localHtml = localStorage.getItem("codeFiddleHtml")
+    if (localHtml) {
+      setJs(localHtml)
+    }
     const htmlEditor = monaco.editor.create(htmlEditorRef.current, {
       ...defaultSettings,
-      ...{language: 'html'}
+      ...{language: 'html', value: localHtml ? localHtml : ''}
     });
-
+    const localCss = localStorage.getItem("codeFiddleCss")
+    if (localCss) {
+      setJs(localCss)
+    }
     const cssEditor = monaco.editor.create(cssEditorRef.current, {
       ...defaultSettings,
-      ...{language: 'css'}
+      ...{language: 'css', value: localCss ? localCss : ''}
     });
-
+    const localJs = localStorage.getItem("codeFiddleJs")
+    if (localJs) {
+      setJs(localJs)
+    }
+    if (localHtml || localCss || localJs) {
+      const srcDoc = htmlSrcTemplate(localHtml, localCss, localJs)
+      setSrcDoc(srcDoc)
+    }
     const jsEditor = monaco.editor.create(jsEditorRef.current, {
       ...defaultSettings,
-      ...{language: 'javascript'}
+      ...{language: 'javascript', value: localJs ? localJs : ''}
     });
+
+    function htmlSrcTemplate(html, css, js) {
+      let htmlSrc = `
+        <html>
+          <head>
+            <style>
+              ${css}
+            </style>
+          </head>
+          <body>
+            ${html}
+          </body>
+          <script>
+            ${js}
+          <\/script>
+        </html>
+      `
+      return htmlSrc
+    }
 
     const updatePreview = () => {
       const htmlValue = htmlEditor.getValue();
@@ -46,15 +79,8 @@ function App() {
       setCss(cssValue)
       setJs(jsValue)
 
-      let htmlSrc = `
-        <html>
-          <head>
-            <style>${cssEditor.getValue()}</style>
-          </head>
-          <body>${htmlEditor.getValue()}</body>
-          <script>${jsEditor.getValue()}<\/script>
-        </html>
-      `
+      let htmlSrc = htmlSrcTemplate(htmlValue, cssValue, jsValue)
+
       setSrcDoc(htmlSrc);
     };
 
@@ -81,7 +107,7 @@ function App() {
   return (
     <div className="App">
 
-      <AppHeader />
+      <AppHeader html={html} css={css} js={js} />
 
       <div className="cf-editor-container">
         <div className="cf-editor-container-section">
