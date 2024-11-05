@@ -22,33 +22,35 @@ function App() {
       theme: 'vs-dark',
       automaticLayout: true
     }
+
     const localHtml = localStorage.getItem("codeFiddleHtml")
     if (localHtml) {
-      setJs(localHtml)
+      setHtml(localHtml)
     }
+
     const htmlEditor = monaco.editor.create(htmlEditorRef.current, {
       ...defaultSettings,
-      ...{language: 'html', value: localHtml ? localHtml : ''}
+      ...{language: 'html', value: localHtml ? localHtml : html}
     });
+
     const localCss = localStorage.getItem("codeFiddleCss")
     if (localCss) {
-      setJs(localCss)
+      setCss(localCss)
     }
+
     const cssEditor = monaco.editor.create(cssEditorRef.current, {
       ...defaultSettings,
-      ...{language: 'css', value: localCss ? localCss : ''}
+      ...{language: 'css', value: localCss ? localCss : css}
     });
+
     const localJs = localStorage.getItem("codeFiddleJs")
     if (localJs) {
       setJs(localJs)
     }
-    if (localHtml || localCss || localJs) {
-      const srcDoc = htmlSrcTemplate(localHtml, localCss, localJs)
-      setSrcDoc(srcDoc)
-    }
+
     const jsEditor = monaco.editor.create(jsEditorRef.current, {
       ...defaultSettings,
-      ...{language: 'javascript', value: localJs ? localJs : ''}
+      ...{language: 'javascript', value: localJs ? localJs : js}
     });
 
     function htmlSrcTemplate(html, css, js) {
@@ -70,17 +72,20 @@ function App() {
       return htmlSrc
     }
 
+    if (localHtml || localCss || localJs) {
+      const htmlSrc = htmlSrcTemplate(localHtml, localCss, localJs)
+      setSrcDoc(htmlSrc)
+    }
+
     const updatePreview = () => {
       const htmlValue = htmlEditor.getValue();
       const cssValue = cssEditor.getValue();
       const jsValue = jsEditor.getValue();
+      const htmlSrc = htmlSrcTemplate(htmlValue, cssValue, jsValue)
 
       setHtml(htmlValue)
       setCss(cssValue)
       setJs(jsValue)
-
-      let htmlSrc = htmlSrcTemplate(htmlValue, cssValue, jsValue)
-
       setSrcDoc(htmlSrc);
     };
 
