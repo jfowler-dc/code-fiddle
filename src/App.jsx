@@ -16,6 +16,25 @@ function App() {
   const [css, setCss] = useState('')
   const [js, setJs] = useState('')
 
+  function htmlSrcTemplate(html, css, js) {
+    let htmlSrc = `
+      <html>
+        <head>
+          <style>
+            ${css}
+          </style>
+        </head>
+        <body>
+          ${html}
+        </body>
+        <script>
+          ${js}
+        <\/script>
+      </html>
+    `
+    return htmlSrc
+  }
+
   useEffect(() => {
     const defaultSettings = {
       value: '',
@@ -52,25 +71,6 @@ function App() {
       ...defaultSettings,
       ...{language: 'javascript', value: localJs ? localJs : js}
     });
-
-    function htmlSrcTemplate(html, css, js) {
-      let htmlSrc = `
-        <html>
-          <head>
-            <style>
-              ${css}
-            </style>
-          </head>
-          <body>
-            ${html}
-          </body>
-          <script>
-            ${js}
-          <\/script>
-        </html>
-      `
-      return htmlSrc
-    }
 
     if (localHtml || localCss || localJs) {
       const htmlSrc = htmlSrcTemplate(localHtml, localCss, localJs)
