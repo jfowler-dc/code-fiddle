@@ -29,7 +29,7 @@ function App() {
         </body>
         <script>
           ${js}
-        <\/script>
+        </script>
       </html>
     `
     return htmlSrc
@@ -98,7 +98,7 @@ function App() {
       cssEditor.dispose();
       jsEditor.dispose();
     };
-  }, []);
+  }, [html, css, js]); // Added html, css, js as per instruction for line 101
 
   function hideResultsWindow(bool) {
     setHideResults(bool)

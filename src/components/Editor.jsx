@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Copy from './Copy';
 
 function Editor({title, editorRef, data}) {
@@ -14,5 +15,11 @@ function Editor({title, editorRef, data}) {
         </div>
     )
 }
+
+Editor.propTypes = {
+  title: PropTypes.string.isRequired,
+  editorRef: PropTypes.object.isRequired,
+  data: PropTypes.string.isRequired,
+};
 
 export default Editor;
