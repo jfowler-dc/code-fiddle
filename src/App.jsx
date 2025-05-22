@@ -98,7 +98,10 @@ function App() {
       cssEditor.dispose();
       jsEditor.dispose();
     };
-  }, [html, css, js]); // Added html, css, js as per instruction for line 101
+    // The editors are initialized once and their content is managed via refs and event listeners.
+    // Adding html, css, js to dependencies would cause re-renders on each keystroke, breaking editor focus.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function hideResultsWindow(bool) {
     setHideResults(bool)
