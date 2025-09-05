@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -33,5 +34,11 @@ function AppHeader({html, css, js}) {
         </header>
     )
 }
+
+AppHeader.propTypes = {
+  html: PropTypes.string.isRequired,
+  css: PropTypes.string.isRequired,
+  js: PropTypes.string.isRequired,
+};
 
 export default AppHeader;

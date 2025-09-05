@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,5 +27,10 @@ function Copy({editorData, editorTitle}) {
         </>
     )
 }
+
+Copy.propTypes = {
+  editorData: PropTypes.string.isRequired,
+  editorTitle: PropTypes.string.isRequired,
+};
 
 export default Copy;

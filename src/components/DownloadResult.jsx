@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -24,5 +25,9 @@ function DownloadResult({srcDoc}) {
         </>
     )
 }
+
+DownloadResult.propTypes = {
+  srcDoc: PropTypes.string.isRequired,
+};
 
 export default DownloadResult;

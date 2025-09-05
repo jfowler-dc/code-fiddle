@@ -29,7 +29,7 @@ function App() {
         </body>
         <script>
           ${js}
-        <\/script>
+        </script>
       </html>
     `
     return htmlSrc
@@ -98,6 +98,9 @@ function App() {
       cssEditor.dispose();
       jsEditor.dispose();
     };
+    // The editors are initialized once and their content is managed via refs and event listeners.
+    // Adding html, css, js to dependencies would cause re-renders on each keystroke, breaking editor focus.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function hideResultsWindow(bool) {
